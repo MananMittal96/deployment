@@ -36,12 +36,12 @@ pipeline {
     stage('Upload') {
         steps{
         echo 'Uploading...'
-        dir('/var/lib/jenkins/workspace/learnjenkin/'){
+        dir('/var/lib/jenkins/workspace/Deployment/'){
             // pwd(); //Log current directory
-            withAWS(region:'us-east-1',credentials:'mys3') {
+            withAWS(region:'us-east-2',credentials:'myS3') {
                 //  def identity=awsIdentity();//Log AWS credentials
                 // Upload files from working directory 'dist' in your project workspace
-                s3Upload(bucket:"mylearndeploy", workingDir:'build', includePathPattern:'**/*');
+                s3Upload(bucket:"manan-deployment", workingDir:'build', includePathPattern:'**/*');
             }
         }
     }
