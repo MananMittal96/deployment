@@ -1,15 +1,15 @@
 pipeline {
     agent any
        stages {
-        stage('Installation') {
+        stage('Initial Step') {
             steps {
-                echo 'Installation...'
+                echo 'Initial Step'
                 sh 'npm install'
             }
         }
-        stage('Test') {
+        stage('Testing') {
             steps {
-                echo 'Testing...'
+                echo 'Testing'
                 sh 'CI=true npm test'
             }
         }
@@ -18,29 +18,23 @@ pipeline {
         scannerHome = tool 'sonar_scanner'
     }
     steps {
-        echo 'Scanning....'
+        echo 'Scanning'
         withSonarQubeEnv('Sonarqube') {
             sh "${scannerHome}/bin/sonar-scanner"
         }
-        // timeout(time: 10, unit: 'MINUTES') {
-        //     waitForQualityGate abortPipeline: true
-        // }
     }
 }
-  stage('Build') {
+  stage('Build Step') {
             steps {
-                echo 'Production build...'
+                echo 'Production build'
                 sh 'npm run build'
             }
         }
     stage('Upload') {
         steps{
-        echo 'Uploading...'
+        echo 'Final Upload'
         dir('/var/lib/jenkins/workspace/DeploymentProject/'){
-            // pwd(); //Log current directory
             withAWS(region:'us-east-2',credentials:'myS3') {
-                //  def identity=awsIdentity();//Log AWS credentials
-                // Upload files from working directory 'dist' in your project workspace
                 s3Upload(bucket:"manan-deployment", workingDir:'build', includePathPattern:'**/*');
             }
         }
