@@ -36,7 +36,7 @@ pipeline {
     stage('Upload') {
         steps{
         echo 'Uploading...'
-        dir('/var/lib/jenkins/workspace/Deployment/'){
+        dir('/var/lib/jenkins/workspace/DeploymentProject/'){
             // pwd(); //Log current directory
             withAWS(region:'us-east-2',credentials:'myS3') {
                 //  def identity=awsIdentity();//Log AWS credentials
