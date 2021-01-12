@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyComponent should render correctly in "debug" mode 1`] = `
+<div
+  className="dashboard container"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col s12 m6"
+    >
+      <ProjectList />
+    </div>
+  </div>
+</div>
+`;

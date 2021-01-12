@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyComponent should render correctly in "debug" mode 1`] = `
+<nav
+  className="nav-wrapper red darken-3"
+>
+  <div
+    className="container"
+  >
+    <Link
+      className="brand-logo"
+      to="/"
+    >
+      Client Management
+    </Link>
+    <ul
+      className="right"
+    >
+      <li>
+        <NavLink
+          to="/"
+        >
+          New Project
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/"
+        >
+          Log Out
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className="btn btn-floating pink lighten-1"
+          to="/"
+        >
+          NN
+        </NavLink>
+      </li>
+    </ul>
+    <ul
+      className="right"
+    >
+      <li>
+        <NavLink
+          to="/"
+        >
+          Signup
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/"
+        >
+          Login
+        </NavLink>
+      </li>
+    </ul>
+  </div>
+</nav>
+`;
